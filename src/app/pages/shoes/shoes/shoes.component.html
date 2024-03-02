@@ -1,0 +1,40 @@
+<!-- <app-header></app-header> -->
+
+<div class="card-container mt-3">
+
+    <div class="row  gap-4 justify-content-center">
+
+        <div class="shop-card" *ngFor="let data of shoes" (click)="viewProduct(data._id)">
+            <div class="title">
+                {{data.name}}
+            </div>
+            <div class="desc">
+                {{data.brand}}
+            </div>
+            <div class="slider">
+                <figure data-color="#E24938, #A30F22">
+                    <img src="http://localhost:3000/uploads/{{data.image}}" />
+                </figure>
+                <figure data-color="#6CD96A, #00986F">
+                </figure>
+                <figure data-color="#4795D1, #006EB8">
+                </figure>
+                <figure data-color="#292a2f, #131519">
+
+                </figure>
+            </div>
+
+            <div class="cta">
+                <div class="price">${{data.price}}</div>
+                <div class="dropup">
+                    <button class="btn btn-default dropdown-toggle" (click)="addToCart(data , $event)" type="button"
+                        data-toggle="dropdown">Add cart
+                    </button>
+
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<!-- <app-footer></app-footer> -->

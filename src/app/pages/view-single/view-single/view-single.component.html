@@ -1,0 +1,24 @@
+<!-- <app-header></app-header> -->
+
+<div class="w-100 h-100" style="height: 100vh; padding-top: 60px;margin-bottom: 20px;">
+    <div class="product">
+        <div class="row no-gutters">
+            <div class="col-lg-6" *ngIf="product">
+                <div class="product-slider">
+                    <img src="http://localhost:3000/uploads/{{ product.image }}" alt="{{ product.brand }}">
+                </div>
+            </div>
+            <div class="col-lg-6">
+                <div class="product-content p-4 p-md-5 h-100" *ngIf="product">
+                    <h3 class="product-title">{{ product.brand }}</h3>
+                    <div class="product-category mb-2">{{ product.category }}</div>
+                    <div class="product-price">₹{{ product.price }}</div>
+                    <div class="product-description mt-3">
+                        <p>{{ product.description }}</p>
+                    </div>
+                    <button class="product-button btn btn-primary" (click)="addToCart(product , $event)">Add to Cart</button>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>

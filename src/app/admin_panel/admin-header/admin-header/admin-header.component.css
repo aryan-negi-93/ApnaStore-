@@ -1,0 +1,216 @@
+/* 載入字型 */
+@import url("https://fonts.googleapis.com/css?family=Noto+Sans+TC:400,700&display=swap&subset=chinese-traditional");
+
+/* Reset Css */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html,
+body {
+  width: 100%;
+  height: 100%;
+}
+
+ul,
+li {
+  list-style: none;
+}
+
+a,
+a:hover,
+a:active,
+a:focus {
+  text-decoration: none;
+  outline: none;
+  color: #000;
+  cursor: pointer;
+}
+
+body {
+  background: #fff;
+  font-size: 1rem;
+  font-family: "Noto Sans TC", sans-serif;
+  /* 設定字型 */
+  color: #000;
+}
+
+/* 共用樣式設定 */
+.container {
+  width: 95%;
+  height: 100%;
+  margin: 0 auto 3rem;
+}
+
+.icon-wrapper {
+  width: 40px;
+  height: 40px;
+  cursor: pointer;
+  text-align: center;
+  font-size: 1.75rem;
+}
+
+/************ header *********/
+header {
+  width: 100%;
+  height: 60px;
+  postion: fixed;
+  top: 0;
+  left: 0;
+  z-index: 999;
+}
+
+.nav-wrapper {
+  display: grid;
+  grid-template-columns: 40px 40px 1fr auto 1fr 40px 40px;
+  grid-template-areas: "hamburger search . brand . heart bag";
+  grid-gap: 0.5rem;
+  align-content: center;
+  height: 60px;
+}
+
+.nav-toggler-label {
+  grid-area: hamburger;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.search-icon {
+  grid-area: search;
+}
+
+.heart-icon {
+  grid-area: heart;
+}
+
+.bag-icon {
+  grid-area: bag;
+}
+
+.nav-brand {
+  grid-area: brand;
+  display: flex;
+  align-items: center;
+}
+
+.nav-brand .brand-img {
+  width: 40px;
+  height: 40px;
+  margin-right: 5px;
+}
+
+.nav-brand .brand-name {
+  font-size: 1.5rem;
+  min-width: 170px;
+}
+
+/* navbar */
+.navbar {
+  position: absolute;
+  top: 60px;
+  left: 0;
+  padding: 1rem 2.5%;
+  width: 100%;
+  background: rgba(255, 255, 255, 0.9);
+  transform: scale(1, 0);
+  transform-origin: top;
+  opacity: 0;
+  transition: all 0.3s ease-out;
+}
+
+.nav-item {
+  margin-bottom: 0.5rem;
+}
+
+.hamburger,
+.hamburger:before,
+.hamburger:after {
+  content: "";
+  width: 30px;
+  height: 2px;
+  display: inline-block;
+  background: black;
+  transition: all 0.15s ease-out;
+}
+
+.hamburger {
+  position: relative;
+}
+
+.hamburger:before {
+  position: absolute;
+  bottom: 10px;
+}
+
+.hamburger:after {
+  position: absolute;
+  top: 10px;
+}
+
+.nav-toggler:checked~.navbar {
+  transform: scale(1, 1);
+  opacity: 1;
+}
+
+.nav-toggler:checked~.nav-toggler-label .hamburger:before,
+.nav-toggler:checked~.nav-toggler-label .hamburger:after {
+  top: 0;
+  bottom: 0;
+}
+
+.nav-toggler:checked~.nav-toggler-label .hamburger {
+  transform: rotate(45deg);
+}
+
+.nav-toggler:checked~.nav-toggler-label .hamburger:before {
+  transform: rotate(90deg);
+}
+
+.nav-toggler {
+  display: none;
+}
+
+/****** 電腦版設定 *******/
+@media screen and (min-width: 768px) {
+  .nav-wrapper {
+    grid-template-columns: auto 1fr minmax(300px, 1fr) 1fr 40px 40px 40px;
+    grid-template-areas: "brand . navbar . search heart bag";
+  }
+
+  .nav-toggler-label {
+    display: none;
+  }
+
+  .navbar {
+    all: unset;
+    grid-area: navbar;
+  }
+
+  .nav-list {
+    display: grid;
+    grid-auto-flow: column;
+    height: 100%;
+    place-items: center;
+    grid-gap: 0.5rem;
+  }
+
+  .nav-item {
+    margin-bottom: 0;
+  }
+}
+
+.container-head {
+  margin: 13px 13px 0px 15px;
+}
+
+
+.nav-brand {
+  width: 90px;
+  height: 50px;
+  margin-right: 5px;
+}

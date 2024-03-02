@@ -1,0 +1,55 @@
+<form [formGroup]="updateProductForm" (ngSubmit)="onSubmit()">
+    <mat-form-field class="example-full-width">
+        <mat-label>name</mat-label>
+        <input matInput formControlName="name" placeholder="Product Name">
+        <mat-error *ngIf="updateProductForm?.get('name')?.invalid && updateProductForm?.get('name')?.touched">Name is
+            required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>brand</mat-label>
+        <input matInput formControlName="brand" placeholder="Brand">
+        <mat-error *ngIf="updateProductForm?.get('brand')?.invalid && updateProductForm?.get('brand')?.touched">Brand is
+            required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width ">
+        <mat-label>Category</mat-label>
+        <mat-select formControlName="category">
+            <mat-option value="Shoes">Shoes</mat-option>
+            <mat-option value="Fashion">Fashion</mat-option>
+            <mat-option value="Electronics">Electronics</mat-option>
+            <mat-option value="Appliances">Appliances</mat-option>
+            <mat-option value="Mobiles">Mobiles</mat-option>
+            <mat-option value="Grocery">Grocery</mat-option>
+        </mat-select>
+        <mat-error
+            *ngIf="updateProductForm?.get('category')?.invalid && updateProductForm?.get('category')?.touched">Category
+            is required</mat-error>
+    </mat-form-field>
+
+    <mat-form-field class="example-full-width">
+        <mat-label>Price</mat-label>
+        <input matInput formControlName="price" placeholder="Price" type="number">
+        <mat-error *ngIf="updateProductForm?.get('price')?.invalid && updateProductForm?.get('price')?.touched">Price is
+            required</mat-error>
+    </mat-form-field>
+
+    <!-- <mat-form-field class="example-full-width">
+        <input matInput formControlName="image" type="file" (change)="onFileSelected($event)">
+        <mat-error *ngIf="updateProductForm?.get('image')?.invalid && updateProductForm?.get('image')?.touched">Image is required</mat-error>
+    </mat-form-field> -->
+
+
+    <mat-form-field class="example-full-width w-100">
+        <mat-label>description</mat-label>
+        <textarea matInput formControlName="description" placeholder="Description"></textarea>
+        <mat-error
+            *ngIf="updateProductForm?.get('description')?.invalid && updateProductForm?.get('description')?.touched">Description
+            is required</mat-error>
+    </mat-form-field>
+
+
+    <button mat-button (click)="closeDialog()">Cancel</button>
+    <button mat-button color="primary" [disabled]="!updateProductForm?.valid" type="submit">Update</button>
+</form>

@@ -1,0 +1,53 @@
+/* You can add global styles to this file, and also import other style files */
+/* You can add global styles to this file, and also import other style files */
+
+html,
+body {
+    height: 100%;
+}
+
+.main {
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+
+.mat-mdc-form-field {
+    width: 100%;
+
+}
+
+.mdc-button {
+    margin: 5px !important;
+}
+
+
+.content {
+    display: block;
+}
+
+a {
+    /* color: rgb(190, 106, 106) !important ; */
+    text-decoration: none;
+    padding: 1%;
+}
+
+
+
+
+html,
+body {
+    height: 100%;
+}
+
+body {
+    margin: 0;
+    font-family: Roboto, "Helvetica Neue", sans-serif;
+}

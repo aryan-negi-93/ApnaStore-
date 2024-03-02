@@ -1,0 +1,54 @@
+.carousel-item{
+    height: 500px;
+}
+
+.carousel-inner {
+    position: relative;
+    width: auto;
+    overflow: hidden;
+    margin: 15px;
+}
+
+
+@media (max-width:800px) {
+    
+    .carousel-item {
+        height: 350px;
+    }
+
+}
+
+
+@media (max-width:600px) {
+    
+    .carousel-item {
+        height: 270px;
+        
+    }
+    .carousel-inner{
+        margin: 0;
+    }
+
+    .container-fluid{
+        /* padding: 0 !important; */
+        margin: 0 !important;
+    }
+
+}
+
+
+@media (max-width:400px) {
+    
+    .carousel-item {
+        height: 200px;
+        
+    }
+    .carousel-inner{
+        margin: 0;
+    }
+
+}
+
+
+
+

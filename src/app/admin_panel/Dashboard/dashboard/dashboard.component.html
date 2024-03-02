@@ -1,0 +1,60 @@
+<main role="main" class="col-md-9 ml-sm-auto col-lg-10 my-3">
+    <div class="card-list">
+        <div class="row">
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+                <div class="card blue">
+                    <div class="title">Total Products</div>
+                    <div class="value">{{ totalProducts }}</div>
+                    <div class="stat">Products in total</div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+                <div class="card green">
+                    <div class="title">Total Customers </div>
+                    <i class="zmdi zmdi-upload"></i>
+                    <div class="value">{{ totalUsers }}</div>
+                    <div class="stat"><b>4</b>% increase</div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+                <div class="card orange">
+                    <div class="title">total budget</div>
+                    <i class="zmdi zmdi-download"></i>
+                    <div class="value">$0000</div>
+                    <div class="stat">fake</div>
+                </div>
+            </div>
+            <div class="col-12 col-md-6 col-lg-4 col-xl-3 mb-4">
+                <div class="card red">
+                    <div class="title">new customers</div>
+                    <i class="zmdi zmdi-download"></i>
+                    <div class="value">0</div>
+                    <div class="stat">fake</div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div>
+        <h1>All Customers List -</h1>
+    </div>
+
+
+    <div class="table-container">
+        <table mat-table [dataSource]="dataSource" class="mat-elevation-z8">
+
+            <!-- Define table columns -->
+            <ng-container *ngFor="let column of displayedColumns" [matColumnDef]="column">
+                <th mat-header-cell *matHeaderCellDef>{{ column }}</th>
+                <td mat-cell *matCellDef="let element">{{ element[column] }}</td>
+            </ng-container>
+
+            <!-- Table rows -->
+            <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+            <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+        </table>
+
+        <!-- Add pagination -->
+        <mat-paginator [pageSizeOptions]="[5, 10, 25, 100]" showFirstLastButtons></mat-paginator>
+    </div>
+</main>

@@ -1,0 +1,110 @@
+<div class="loading-container" *ngIf="loading">
+    <div id="loading"></div>
+</div>
+
+<app-admin-header></app-admin-header>
+
+<div class="modal fade" #exampleModal id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h1 class="modal-title fs-5" id="exampleModalLabel">add new product</h1>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <form [formGroup]="uploadForm" (ngSubmit)="onUpload()">
+                    <div style="display: flex; justify-content: space-between; gap: 10px; ">
+                        <div class="mb-3 w-100">
+                            <label for="exampleInputEmail1" class="form-label">Title</label>
+                            <input formControlName="name" type="email" class="form-control" id="exampleInputEmail1"
+                                aria-describedby="emailHelp">
+                            <!-- <div id="emailHelp" class="form-text">We'll never share your email with anyone else.</div> -->
+                        </div>
+                        <div class="mb-3 w-100">
+                            <label for="exampleInputPassword1" class="form-label">brand</label>
+                            <input formControlName="brand" type="password" class="form-control">
+                        </div>
+                    </div>
+
+                    <div style="display: flex; justify-content: space-between; gap: 10px; ">
+                        <div class="mb-3 w-100">
+                            <label class="form-label">price</label>
+                            <input formControlName="price" type="password" class="form-control">
+                        </div>
+
+                        <div class="mb-3 w-100">
+                            <label for="exampleInputEmail1" class="form-label">Category</label>
+                            <select formControlName="category" class="form-select" aria-label="Default select example"
+                                [(ngModel)]="selectedCategory">
+                                <option value="Shoes">Shoes</option>
+                                <option value="Fashion">Fashion</option>
+                                <option value="Electronics">Electronics</option>
+                                <option value="Appliances">Appliances</option>
+                                <option value="Mobiles">Mobiles</option>
+                                <option value="Grocery">Grocery</option>
+                            </select>
+                        </div>
+                    </div>
+
+                    <div>
+                        <div class="mb-3">
+                            <label for="formFile" class="form-label">Product image</label>
+                            <input class="form-control" type="file" id="formFile" (change)="onFileSelected($event)">
+
+                        </div>
+                    </div>
+                    <div class="mb-3 form-check w-100 p-0">
+                        <div class="form-floating">
+                            <textarea formControlName="description" class="form-control"
+                                placeholder="Leave a comment here" id="floatingTextarea2"
+                                style="height: 100px"></textarea>
+                            <label for="floatingTextarea2">description</label>
+                        </div>
+                    </div>
+                    <!-- <button type="submit" class="btn btn-primary">Submit</button> -->
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+                        <button class="btn btn-primary">Add Product</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+<div class="container-fluid">
+    <div class="row">
+        <nav class="col-md-2 d-none d-md-block sidebar">
+            <div class="sidebar-sticky" style="display: inline-block;">
+                <ul class="nav flex-column">
+                    <li class="nav-item">
+                        <a class="nav-link active" [routerLink]="['/admin']">
+                            <i class="zmdi zmdi-widgets"></i>
+                            Dashboard <span class="sr-only">(current)</span>
+                        </a>
+                    </li>
+                    <li class="nav-item" data-bs-toggle="modal" data-bs-target="#exampleModal">
+                        <a class="nav-link" style="cursor: pointer;">
+                            <i class="zmdi zmdi-file-text"></i>
+                            add new product
+                        </a>
+                    </li>
+                    <li class="nav-item">
+                        <a class="nav-link" [routerLink]="['adminCat']">
+                            <i class="zmdi zmdi-shopping-cart"></i>
+                            Products
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </nav>
+
+        <main>
+            <router-outlet></router-outlet>
+        </main>
+    </div>
+</div>
+

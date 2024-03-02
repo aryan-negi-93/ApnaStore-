@@ -1,0 +1,56 @@
+<div class="t-head">
+    <div class="searchIn">
+        <i class="fa-solid fa-magnifying-glass"></i>
+        <input matInput (keyup)="applyFilter($event)" placeholder="Search products">
+    </div>
+</div>
+
+<mat-table [dataSource]="dataSource" matSort>
+
+    <!-- Number Column -->
+    <ng-container matColumnDef="number">
+        <mat-header-cell *matHeaderCellDef> # </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element._id}} </mat-cell>
+    </ng-container>
+
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+        <mat-header-cell *matHeaderCellDef> Name </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.name}} </mat-cell>
+    </ng-container>
+
+    <!-- Image Column -->
+    <ng-container matColumnDef="image">
+        <mat-header-cell *matHeaderCellDef> Image </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <img style="width: 50px;" [src]="'http://localhost:3000/uploads/' + element.image" alt="">
+        </mat-cell>
+    </ng-container>
+
+    <!-- Brand Column -->
+    <ng-container matColumnDef="brand">
+        <mat-header-cell *matHeaderCellDef> Brand </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.brand}} </mat-cell>
+    </ng-container>
+
+    <!-- Category Column -->
+    <ng-container matColumnDef="category">
+        <mat-header-cell *matHeaderCellDef> Category </mat-header-cell>
+        <mat-cell *matCellDef="let element"> {{element.category}} </mat-cell>
+    </ng-container>
+
+    <!-- Action Column -->
+    <ng-container matColumnDef="action">
+        <mat-header-cell *matHeaderCellDef> Action </mat-header-cell>
+        <mat-cell *matCellDef="let element">
+            <button mat-button color="primary" (click)="updateProduct(element)">Update</button>
+            <button mat-button color="warn" (click)="deleteProduct(element._id)">Delete</button>
+        </mat-cell>
+    </ng-container>
+
+    <mat-header-row *matHeaderRowDef="displayedColumns"></mat-header-row>
+    <mat-row *matRowDef="let row; columns: displayedColumns;"></mat-row>
+</mat-table>
+
+<mat-paginator [pageSizeOptions]="[5, 10, 25]" [length]="AllProducts.length" (page)="onPageChange($event)">
+</mat-paginator>

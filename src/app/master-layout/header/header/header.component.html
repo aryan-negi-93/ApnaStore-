@@ -1,0 +1,95 @@
+<header>
+
+    <mat-drawer #drawer mode="side" opened="false">
+        <button mat-icon-button (click)="drawer.close()">
+            <mat-icon>close</mat-icon>
+
+
+
+
+
+        </button>
+
+
+        <div class="example-button-row  justify-content-center align-self-center p-3">
+
+            <div class="d-flex justify-content-center " style="background: white;">
+                <button mat-button color="primary">Your Cart</button>
+            </div>
+            <div class="d-flex justify-content-center mt-2" style="background: white;">
+                <button mat-button color="primary">shoes</button>
+            </div>
+            <div class="d-flex justify-content-center mt-2" style="background: white;">
+                <button mat-button color="accent">Fashion</button>
+            </div>
+            <div class="d-flex justify-content-center mt-2" style="background: white;">
+                <button mat-button color="accent">Electronics</button>
+            </div>
+            <div class="d-flex justify-content-center mt-2" style="background: white;">
+                <button mat-button color="accent">Appliances</button>
+            </div>
+            <div class="d-flex justify-content-center mt-2" style="background: white;">
+                <button mat-button color="accent">Mobiles</button>
+            </div>
+            <div class="d-flex justify-content-center mt-2" style="background: white;">
+                <button mat-button color="accent">Grocery</button>
+            </div>
+
+        </div>
+
+        <div class="example-button-row  justify-content-center align-self-center p-3" style=" margin-top: 100%; ">
+
+            <div class="d-flex justify-content-center mt-2" style="background: white; margin-top: 100%; ">
+                <button mat-button color="accent" (click)="logout()">Logout</button>
+            </div>
+
+        </div>
+
+
+    </mat-drawer>
+
+
+
+    <div class="container-head">
+        <div class="nav-wrapper">
+            <a href="#" class="nav-brand">
+                <img src="../../../../assets/images/apnalogo.png" alt="" class="brand-img">
+                <h1 class="brand-name" style="font-weight: bold;"> STORE</h1>
+            </a>
+            <nav class="navbar">
+                <ul class="nav-list">
+                    <li class="nav-item"><a [routerLink]="['/shoes']" class="nav-link">shoes</a></li>
+                    <li class="nav-item"><a [routerLink]="['/Fashion']" class="nav-link">Fashion</a></li>
+                    <li class="nav-item"><a [routerLink]="['/Electronics']" class="nav-link">Electronics</a></li>
+                    <li class="nav-item"><a [routerLink]="['/Appliances']" class="nav-link">Appliances</a></li>
+                    <li class="nav-item"><a [routerLink]="['/Mobiles']" class="nav-link">Mobiles</a></li>
+                    <li class="nav-item"><a [routerLink]="['/Grocery']" class="nav-link">Grocery</a></li>
+                </ul>
+            </nav>
+            <div style="display: flex;">
+                <!-- <div class="icon-wrapper search-icon"><i class="fas fa-search"></i></div> -->
+
+
+                <!-- <div class="icon-wrapper heart-icon"><i routerLink="/cart" class="far fa-heart"></i></div>
+                <div class="icon-wrapper bag-icon" (click)="drawer.toggle()">
+                    <i class="fas fa-shopping-bag"></i>
+
+                </div> -->
+
+                <div class="icon-wrapper bag-icon"><i routerLink="/cart" class="fas fa-shopping-bag "></i></div>
+                <div class="icon-wrapper hamburger-icon" (click)="drawer.toggle()">
+                    <i class="fas fa-bars"></i>
+
+                </div>
+
+            </div>
+
+
+
+
+        </div>
+
+
+    </div>
+
+</header>
