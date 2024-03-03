@@ -24,6 +24,7 @@ import { AdminLandingPageComponent } from './admin_panel/admin-landing-page/admi
 
 import { MatSelectModule } from '@angular/material/select';
 import { FormsModule, ReactiveFormsModule } from '@angular/forms';
+import { GooglePayButtonModule } from "@google-pay/button-angular";
 
 // import {ErrorStateMatcher} from '@angular/material/core';
 
@@ -80,7 +81,8 @@ import { UpdateProductDialogComponent } from './admin_panel/update-product-dialo
     MatIconModule,
     MaterialModule,
     ToastrModule.forRoot(),
-    ShoesRoutingModule
+    ShoesRoutingModule,
+    GooglePayButtonModule,   // google pay 
 
 
 
